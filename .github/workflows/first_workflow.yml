@@ -16,11 +16,6 @@ jobs:
         name: 'setup node'
         with:
           node-version: '13.x'
-      #- run: make setup
-      #- run: make start
-      #- run: make test
-      #- run: make lint
-      - run: npm install
-      - run: npm run build
-      - run: npm start
-      - run: npm test
+      - run: make setup
+      - run: make test
+      - run: make lint
