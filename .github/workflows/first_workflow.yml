@@ -11,9 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps: # список шагов, которые надо выполнить
       - uses: actions/checkout@v2
-      # run – произвольная bash-команда
-      - uses: actions/setup-node@v1
-        name: 'setup node'
+      - name: 'setup node'
+        uses: actions/setup-node@v1
         with:
           node-version: '13.x'
       - run: make setup
