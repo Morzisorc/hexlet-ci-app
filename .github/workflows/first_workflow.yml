@@ -18,10 +18,7 @@ jobs:
       - run: make setup
       # run start
       - run: make start
-          needs: setup
       # run test
       - run: make test
-          needs: start
       # run lint
       - run: make lint
-          needs: test
