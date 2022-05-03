@@ -18,10 +18,10 @@ jobs:
       - run: make setup
       # run start
       - run: make start
-          needs: make setup
+          needs: setup
       # run test
       - run: make test
-          needs: make start
+          needs: start
       # run lint
       - run: make lint
-          needs: make test
+          needs: test
