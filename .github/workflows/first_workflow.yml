@@ -8,21 +8,19 @@ jobs:
   # их может быть больше одного
   build:
     # операционная система для работы воркфлоу
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest]
+    runs-on: ubuntu-latest
     steps: # список шагов, которые надо выполнить
-      # экшен, выполняет какую-то задачу
-      # checkout – клонирует репозиторий
       - uses: actions/checkout@v2
       # run – произвольная bash-команда
       - uses: actions/setup-node@v1
-      # run setup
-      - run: make setup
-      # run start
-      - run: make start
-      # run test
-      - run: make test
-      # run lint
-      - run: make lint
+        name: 'setup node'
+        with:
+          node-version: '13.x'
+      #- run: make setup
+      #- run: make start
+      #- run: make test
+      #- run: make lint
+      - run: npm install
+      - run: npm run build
+      - run: npm start
+      - run: npm test
